@@ -1,4 +1,5 @@
 import css from "./ImageCard.module.css";
+import { ImageCardProps } from "./ImageCard.types";
 
 export default function ImageCard({
   item: {
@@ -8,7 +9,7 @@ export default function ImageCard({
     likes,
   },
   onOpen,
-}) {
+}: ImageCardProps) {
   return (
     <div>
       <img

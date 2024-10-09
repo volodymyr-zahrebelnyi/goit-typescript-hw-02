@@ -12,20 +12,23 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import css from "./App.module.css";
 
+import { Image } from "./App.types";
+import { string } from "yup";
+
 Modal.setAppElement("#root");
 
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [topic, setTopic] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(999);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(null);
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [images, setImages] = useState<Image[]>([]);
+  const [topic, setTopic] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(999);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [selectedImg, setSelectedImg] = useState<Image | null>(null);
+  const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
 
-  const handleSearch = newTopic => {
+  const handleSearch = (newTopic: string) => {
     setTopic(newTopic);
     setPage(1);
     setImages([]);
@@ -72,7 +75,7 @@ export default function App() {
     }
   }, [error]);
 
-  const openModal = image => {
+  const openModal = (image: Image) => {
     setSelectedImg(image);
     setModalIsOpen(true);
   };

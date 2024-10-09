@@ -2,7 +2,13 @@ import Modal from "react-modal";
 import { useEffect } from "react";
 import css from "./ImageModal.module.css";
 
-export default function ImageModal({ isOpen, onClose, image }) {
+import { ImageModalProps } from "./ImageModal.types";
+
+export default function ImageModal({
+  isOpen,
+  onClose,
+  image,
+}: ImageModalProps) {
   const modalCustomStyles = {
     content: {
       top: "50%",
@@ -20,7 +26,7 @@ export default function ImageModal({ isOpen, onClose, image }) {
   };
 
   useEffect(() => {
-    const handleEsc = evt => {
+    const handleEsc = (evt: KeyboardEvent) => {
       if (evt.code === "Escape") {
         onClose();
       }
