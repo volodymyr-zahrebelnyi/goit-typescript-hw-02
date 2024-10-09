@@ -1,0 +1,54 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #4e75ff;
+  margin-bottom: 5px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fieldWrap {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.field {
+  border: none;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 15px 10px 45px;
+}
+
+.field:focus {
+  border: none;
+  outline: none;
+}
+
+.btn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: grey;
+}
+
+.icon:hover {
+  color: black;
+}
