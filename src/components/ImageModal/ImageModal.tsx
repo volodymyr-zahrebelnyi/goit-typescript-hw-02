@@ -42,9 +42,11 @@ export default function ImageModal({
       {image && (
         <div>
           <img className={css.image} src={image.src} alt={image.description} />
-          <p className={css.description}>{image.description}</p>
-          <p className={css.author}>Author: {image.username}</p>
-          <p className={css.likes}>Likes: {image.likes}</p>
+          <p className={css.description}>
+            {image.description || "No description"}
+          </p>
+          <p className={css.author}>Author: {image.username || "Unknown"}</p>
+          <p className={css.likes}>Likes: {image.likes ?? 0}</p>
         </div>
       )}
     </Modal>

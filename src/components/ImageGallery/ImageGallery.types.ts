@@ -5,7 +5,7 @@ export interface ImageGalleryProps {
       small: string;
       regular: string;
     };
-    description: string;
+    description?: string;
     user: {
       username: string;
     };

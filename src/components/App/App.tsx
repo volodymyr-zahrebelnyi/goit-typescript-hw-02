@@ -47,7 +47,8 @@ export default function App() {
       try {
         setLoading(true);
         setError(false);
-        const newImages = await fetchImages(page, topic);
+        const newImages: { images: Image[]; totalPages: number } =
+          await fetchImages(page, topic);
         setImages(prevState => [...prevState, ...newImages.images]);
         setTotalPages(newImages.totalPages);
       } catch (error) {
@@ -74,21 +75,33 @@ export default function App() {
     }
   }, [error]);
 
-  // const openModal = (image: Image) => {
-  //   setSelectedImg(image);
-  //   setModalIsOpen(true);
-  // };
-
   const openModal = (image: Image) => {
+    const {
+      urls: { regular },
+      description,
+      likes,
+      user: { username },
+    } = image;
     const ModalImage: SelectedImage = {
-      src: image.urls.regular,
-      description: image.description || "No descryption",
-      likes: image.likes || 0,
-      username: image.user.username || "Unknown",
+      src: regular,
+      description,
+      likes,
+      username,
     };
     setSelectedImg(ModalImage);
     setModalIsOpen(true);
   };
+
+  // const openModal = (image: Image) => {
+  //   const ModalImage: SelectedImage = {
+  //     src: image.urls.regular,
+  //     description: image.description || "No descryption",
+  //     likes: image.likes || 0,
+  //     username: image.user.username || "Unknown",
+  //   };
+  //   setSelectedImg(ModalImage);
+  //   setModalIsOpen(true);
+  // };
 
   const closeModal = () => {
     setSelectedImg(null);

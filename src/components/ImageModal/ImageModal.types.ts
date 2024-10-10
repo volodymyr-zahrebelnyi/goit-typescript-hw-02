@@ -3,8 +3,8 @@ export interface ImageModalProps {
   onClose: () => void;
   image: {
     src: string;
-    description: string;
-    username: string;
-    likes: number;
+    description?: string;
+    username?: string;
+    likes?: number;
   } | null;
 }
