@@ -13,7 +13,7 @@ export interface ImageGalleryProps {
   }>;
   onOpen: (image: {
     src: string;
-    description?: string;
+    description: string;
     likes?: number;
     username?: string;
   }) => void;

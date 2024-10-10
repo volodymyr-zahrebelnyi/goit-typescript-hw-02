@@ -6,7 +6,14 @@ export interface Image {
   };
   description: string;
   user: {
-    username: string;
+    username?: string;
   };
-  likes: number;
+  likes?: number;
+}
+
+export interface SelectedImage {
+  src: string;
+  description: string;
+  username?: string;
+  likes?: number;
 }

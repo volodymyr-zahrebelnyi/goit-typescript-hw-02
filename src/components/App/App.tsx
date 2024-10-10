@@ -12,8 +12,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
 import css from "./App.module.css";
 
-import { Image } from "./App.types";
-import { string } from "yup";
+import { Image, SelectedImage } from "./App.types";
 
 Modal.setAppElement("#root");
 
@@ -25,7 +24,7 @@ export default function App() {
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(999);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [selectedImg, setSelectedImg] = useState<Image | null>(null);
+  const [selectedImg, setSelectedImg] = useState<SelectedImage | null>(null);
   const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
 
   const handleSearch = (newTopic: string) => {
@@ -75,8 +74,19 @@ export default function App() {
     }
   }, [error]);
 
+  // const openModal = (image: Image) => {
+  //   setSelectedImg(image);
+  //   setModalIsOpen(true);
+  // };
+
   const openModal = (image: Image) => {
-    setSelectedImg(image);
+    const ModalImage: SelectedImage = {
+      src: image.urls.regular,
+      description: image.description,
+      likes: image.likes,
+      username: image.user.username,
+    };
+    setSelectedImg(ModalImage);
     setModalIsOpen(true);
   };
 
