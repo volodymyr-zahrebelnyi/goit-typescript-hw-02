@@ -82,9 +82,9 @@ export default function App() {
   const openModal = (image: Image) => {
     const ModalImage: SelectedImage = {
       src: image.urls.regular,
-      description: image.description,
-      likes: image.likes,
-      username: image.user.username,
+      description: image.description || "No descryption",
+      likes: image.likes || 0,
+      username: image.user.username || "Unknown",
     };
     setSelectedImg(ModalImage);
     setModalIsOpen(true);

@@ -9,11 +9,11 @@ export interface ImageGalleryProps {
     user: {
       username: string;
     };
-    likes: number;
+    likes?: number;
   }>;
   onOpen: (image: {
     src: string;
-    description: string;
+    description?: string;
     likes?: number;
     username?: string;
   }) => void;

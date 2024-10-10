@@ -4,15 +4,15 @@ export interface ImageCardProps {
       small: string;
       regular: string;
     };
-    description: string;
+    description?: string;
     user: {
       username: string;
     };
-    likes: number;
+    likes?: number;
   };
   onOpen: (image: {
     src: string;
-    description: string;
+    description?: string;
     likes?: number;
     username?: string;
   }) => void;
