@@ -75,22 +75,33 @@ export default function App() {
     }
   }, [error]);
 
-  const openModal = (image: Image) => {
-    const {
-      urls: { regular },
-      description,
-      likes,
-      user: { username },
-    } = image;
+  const openModal = (image: SelectedImage) => {
     const ModalImage: SelectedImage = {
-      src: regular,
-      description,
-      likes,
-      username,
+      src: image.src,
+      description: image.description,
+      likes: image.likes,
+      username: image.username,
     };
     setSelectedImg(ModalImage);
     setModalIsOpen(true);
   };
+
+  // const openModal = (image: Image) => {
+  //   const {
+  //     urls: { regular },
+  //     description,
+  //     likes,
+  //     user: { username },
+  //   } = image;
+  //   const ModalImage: SelectedImage = {
+  //     src: regular,
+  //     description,
+  //     likes,
+  //     username,
+  //   };
+  //   setSelectedImg(ModalImage);
+  //   setModalIsOpen(true);
+  // };
 
   // const openModal = (image: Image) => {
   //   const ModalImage: SelectedImage = {
